@@ -186,7 +186,7 @@ if(interestList.length ===0) {
     <div class="flex flex-col items-center mt-12 text-blue-800">
     <img src="./jobs.png"/>
     <h3>No jobs available!</h3>
-    <p>Check back soon for new job opportunities</p>
+    <p>Check back soon for new job opportunities.</p>
     </div>
     `
     return

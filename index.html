@@ -12,9 +12,9 @@
 
 </head>
 <body>
-    <header class="w-[80%] mx-auto">
-        <h1 class="text-4xl font-bold text-blue-950 mt-7 mb-3.5">Job Application Tracker</h1>
-        <div class="grid grid-cols-3 p-5 border-amber-50 border-r-4 bg-amber-50 gap-8">
+    <header class=" text-center   sm:w-[80%] mx-auto">
+        <h1 class=" text-center   sm:text-left   text-4xl font-bold text-blue-950 mt-7 mb-3.5">Job Application Tracker</h1>
+        <div class="grid grid-cols-1 text-center sm:grid-cols-3 p-5 border-amber-50 border-r-4 bg-amber-50 gap-8">
             <div >
             <p>Total</p>
             <p id="total" class="text-blue-950  font-bold text-3xl ">0</p>
@@ -30,15 +30,15 @@
         </div>
     </header>
     <hr class="my-7 text-gray-300 w-[80%] mx-auto">
-    <section class="w-[80%] mx-auto">
+    <section class="w-[88%]    sm:w-[80%] mx-auto">
         <div class="flex justify-between my-5 ">
             <p class="text-blue-950 text-[20px] font-bold">Available Jobs</p>
             <h3 id="jobCounterFairy"    class="text-blue-600 opacity-60">8 Jobs</h3>
         </div>
     </section>
-            <main class="w-[80%] mx-auto ">
+            <main class="  w-[88%]    sm:w-[80%]  mx-auto overflow-auto pb-64 ">
 
-        <div class="flex gap-3 mb-8">
+        <div class="   flex gap-3 mb-8  ">
             <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn"   class="text-white bg-blue-400 px-8 py-2 rounded">All</button>
             <button onclick="toggleStyle('interested-filter-btn')" id="interested-filter-btn" class="text-blue-600 opacity-60 bg-amber-50 px-8 py-2">Interview</button>
             <button onclick="toggleStyle('rejected-filter-btn')" id="rejected-filter-btn" class="text-blue-600 opacity-60 bg-amber-50 px-8 py-2">Rejected</button>
