@@ -43,3 +43,14 @@ console.log(selected);
 selected.classList.remove('bg-amber-50','text-blue-600/60')
 selected.classList.add('bg-blue-400', 'text-white')
 }
+
+mainContainer.addEventListener('click',function(event){
+    // console.log(event.target.parentNode.parentNode); 
+
+    const parentNode = event.target.parentNode.parentNode
+    const jobName = parentNode.querySelector('.jobName').innerText
+    const native = parentNode.querySelector('.native').innerText
+    const fees = parentNode.querySelector('.fees').innerText
+    
+    
+})
