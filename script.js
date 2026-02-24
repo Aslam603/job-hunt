@@ -43,6 +43,17 @@ function toggleStyle(id){
 
 selected.classList.remove('bg-amber-50','text-blue-600/60')
 selected.classList.add('bg-blue-400', 'text-white')
+ 
+if(id == 'interested-filter-btn'){
+    allCardSection.classList.add('hidden');
+    filterSection.classList.remove('hidden')
+}else if(id== 'all-filter-btn'){
+    allCardSection.classList.remove('hidden');
+    filterSection.classList.add('hidden')
+}
+
+
+
 }
 
 mainContainer.addEventListener('click',function(event){
@@ -55,16 +66,20 @@ if(event.target.classList.contains('int-btn')) {
     const jobName = parentNode.querySelector('.jobName').innerText
     const native = parentNode.querySelector('.native').innerText
     const fees = parentNode.querySelector('.fees').innerText
+    const pera =parentNode.querySelector('.pera').innerText
     const applied = parentNode.querySelector('.applied').innerText
    
 const cardInfo ={
     jobName,
     native,
     fees,
+    pera,
     applied 
 }
     
  const jobExist = interestList.find(item=> item.jobName == cardInfo.jobName)
+ 
+parentNode.querySelector('.applied').innerText = 'Interview'
 
 if(!jobExist){
     interestList.push(cardInfo)
@@ -98,7 +113,7 @@ for(let interest of interestList){
                     <button class=" applied    bg-blue-300/35 mb-3.5 rounded px-4 py-1">NOT APPLIED</button>
                 </div>
                 <div class="mb-3.5">
-                 <p>  Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                 <p class="pera">  Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                 </div>
                 <div class="flex gap-2.5 mb-5">
                     <button class="bg-amber-50 border border-green-500 text-green-500 rounded px-4 py-1 font-semibold">Interview</button>
@@ -109,7 +124,10 @@ for(let interest of interestList){
                     <button class="bg-amber-100 p-2 rounded-full">
             <i class="fa-solid fa-trash-can"></i>
                     </button>
-                </div> `
+                </div> 
+                `
+filterSection.appendChild(div)
+
 }
 
 }
