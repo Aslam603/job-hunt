@@ -7,8 +7,13 @@ let interestCount = document.getElementById('interestedCount')
 let rejectCount = document.getElementById('rejectedCount')
 
 // console.log(total);
-
+ 
 const allCardSection = document.getElementById('allCards')
+
+const totalJobs = allCardSection.children.length
+
+const jobCounterFairy = document.getElementById('jobCounterFairy')
+
 
 const mainContainer =document.querySelector('main')
 const filterSection =document.getElementById('filtered-section')
@@ -18,11 +23,29 @@ const allFilterBtn = document.getElementById('all-filter-btn')
 const interestedFilterBtn = document.getElementById('interested-filter-btn')
 const rejectedFilterBtn = document.getElementById('rejected-filter-btn')
 
+function updateJob(holud){
+
+    if(holud === 'all'){
+        jobCounterFairy.innerText= totalJobs + " jobs "
+    }
+    else if(holud === 'interview'){
+        jobCounterFairy.innerText = interestList.length + " of " + totalJobs + " jobs "
+    }
+    else if (holud ==='rejected'){
+        jobCounterFairy.innerText=rejectList.length + " of " + totalJobs + " jobs "
+    }
+}
+
+
 
 function calculateCount(){
     total.innerText =allCardSection.children.length
     interestCount.innerText = interestList.length
     rejectCount.innerText = rejectList.length
+
+    jobCounterFairy.innerText = allCardSection.children.length  + "Jobs"
+
+
 }
 calculateCount()
 
@@ -48,16 +71,19 @@ if(id == 'interested-filter-btn'){
     allCardSection.classList.add('hidden');
     filterSection.classList.remove('hidden')
     renderInterest();
+    updateJob('interview')
 
 } else if(id == 'rejected-filter-btn'){
     allCardSection.classList.add('hidden');
     filterSection.classList.remove('hidden')
     renderRejected();
+    updateJob('rejected')
 
 
 }else if(id== 'all-filter-btn'){
     allCardSection.classList.remove('hidden');
     filterSection.classList.add('hidden')
+    updateJob('all')
 }
 
 
@@ -65,6 +91,24 @@ if(id == 'interested-filter-btn'){
 }
 
 mainContainer.addEventListener('click',function(event){
+
+if(event.target.closest('.delete-btn')){
+
+    const card =event.target.closest('.flex')
+    const jobName = card.querySelector('.jobName').innerText;
+
+interestList =interestList.filter(item => item.jobName  !==jobName)
+rejectList =rejectList.filter(item => item.jobName  !==jobName)
+
+card.remove();
+calculateCount();
+
+renderInterest();
+renderRejected();
+
+}
+
+
 
     console.log(event.target.classList.contains('int-btn'));
 
@@ -94,7 +138,7 @@ if(!jobExist){
 }
 calculateCount();
 renderInterest();
-
+updateJob('interview')
 }
 
 // rejected one
@@ -126,6 +170,7 @@ const cardInfo ={
     }
      calculateCount();
      renderRejected();
+     updateJob('rejected')
 }
 
 
